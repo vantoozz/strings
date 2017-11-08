@@ -21,7 +21,7 @@ var_dump((string)new Acronym('PHP: Hypertext Preprocessor'));
 ```
 Will output
 ```
-string(3) "PHP"
+PHP
 ```
 
 #### Available transformations
