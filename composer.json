@@ -1,0 +1,55 @@
+{
+  "name": "vantoozz/strings",
+  "license": "MIT",
+  "type": "library",
+  "description": "Strings library",
+  "authors": [
+    {
+      "name": "Ivan Nikitin",
+      "email": "vantoozz@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "~7"
+  },
+  "require-dev": {
+    "php-http/guzzle6-adapter": "~1",
+    "squizlabs/php_codesniffer": "~3",
+    "phploc/phploc": "~4",
+    "sebastian/phpcpd": "~3",
+    "phpmd/phpmd": "~2",
+    "block8/php-docblock-checker": "~1",
+    "jakub-onderka/php-parallel-lint": "~0",
+    "phpstan/phpstan": "~0",
+    "phpunit/phpunit": "~6",
+    "codacy/coverage": "~1",
+    "satooshi/php-coveralls": "~1",
+    "league/container": "~2",
+    "povils/phpmnd": "~1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vantoozz\\Strings\\": [
+        "src/"
+      ]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Vantoozz\\Strings\\": [
+        "tests/"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "bash .githooks/setup.sh"
+    ],
+    "post-update-cmd": [
+      "bash .githooks/setup.sh"
+    ]
+  }
+}
