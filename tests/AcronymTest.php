@@ -28,6 +28,7 @@ final class AcronymTest extends TestCase
     {
         return [
             ['hello', 'h'],
+            ['   ', ''],
             ['PHP: Hypertext Preprocessor', 'PHP'],
             ['PHP: hypertext preprocessor', 'Php'],
         ];
