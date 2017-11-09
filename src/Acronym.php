@@ -18,7 +18,7 @@ final class Acronym extends AbstractString
 
         $result = '';
         foreach ($words as $word) {
-            $result .= $word{0}??'';
+            $result .= $word{0} ?? '';
         }
 
         return $result;
