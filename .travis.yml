@@ -16,7 +16,6 @@ before_script:
 script:
   - composer validate --no-check-all --strict
   - mkdir -p build/logs
-  - vendor/bin/phpunit --testsuite=integration
   - vendor/bin/phpunit --testsuite=unit --coverage-text  --coverage-clover build/logs/clover.xml
   - bash .githooks/pre-commit
 
