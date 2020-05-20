@@ -1,23 +1,25 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Vantoozz\Strings;
+
+use Stringable;
 
 /**
  * Class AbstractString
  * @package Vantoozz\Strings
  */
-abstract class AbstractString
+abstract class AbstractString implements Stringable
 {
     /**
-     * @var string
+     * @var Stringable
      */
     private $string;
 
     /**
      * Acronym constructor.
-     * @param string $string
+     * @param Stringable $string
      */
-    public function __construct(string $string)
+    public function __construct(Stringable $string)
     {
         $this->string = $string;
     }
@@ -25,9 +27,9 @@ abstract class AbstractString
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->toString($this->string);
+        return $this->toString((string)$this->string);
     }
 
     /**

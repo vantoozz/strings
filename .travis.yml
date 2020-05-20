@@ -1,25 +1,34 @@
 language: php
 
+services:
+  - docker
+
 php:
-  - 7.0
-  - 7.1
   - 7.2
+  - 7.3
+  - 7.4
+  - nightly-8.0
+
+env:
+  matrix:
+    - PREFER_LOWEST="--prefer-lowest --prefer-stable"
+    - PREFER_LOWEST=""
 
 before_script:
-  - composer install
+  - composer global require hirak/prestissimo
+  - composer update $PREFER_LOWEST
 
 script:
+  - composer validate --no-check-all --strict
   - mkdir -p build/logs
-  - phpunit --testsuite=unit --coverage-text  --coverage-clover build/logs/clover.xml
-  - vendor/bin/phpstan analyze src --level=1
-  - vendor/bin/parallel-lint --no-colors --exclude vendor --exclude .idea .
-  - vendor/bin/phpdoccheck -d src
-  - vendor/bin/phpcpd --ansi src
-  - vendor/bin/phpmnd src --non-zero-exit-on-violation
-  - vendor/bin/phpcs --standard=psr2 --colors src
-  - vendor/bin/phpmd src text phpmd.xml
-  - vendor/bin/phploc --ansi src
+  - vendor/bin/phpunit --testsuite=integration
+  - vendor/bin/phpunit --testsuite=unit --coverage-text  --coverage-clover build/logs/clover.xml
+  - bash .githooks/pre-commit
 
 after_script:
-  - vendor/bin/coveralls -v
+  - composer require php-coveralls/php-coveralls
+  - composer require codacy/coverage
+  - vendor/bin/php-coveralls -v
   - vendor/bin/codacycoverage clover build/logs/clover.xml
+
+

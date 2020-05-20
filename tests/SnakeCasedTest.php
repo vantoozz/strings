@@ -18,7 +18,7 @@ final class SnakeCasedTest extends TestCase
      */
     public function it_works(string $input, string $output)
     {
-        $this->assertEquals($output, (string)new SnakeCased($input));
+        $this->assertEquals($output, (string)new SnakeCased(new StringObject($input)));
     }
 
     /**

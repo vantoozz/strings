@@ -18,7 +18,7 @@ final class AcronymTest extends TestCase
      */
     public function it_works(string $input, string $output)
     {
-        $this->assertEquals($output, (string)new Acronym($input));
+        $this->assertEquals($output, (string)new Acronym(new StringObject($input)));
     }
 
     /**
