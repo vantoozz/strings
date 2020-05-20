@@ -9,14 +9,9 @@ php:
   - 7.4
 #  - nightly-8.0
 
-env:
-  matrix:
-    - PREFER_LOWEST="--prefer-lowest --prefer-stable"
-    - PREFER_LOWEST=""
-
 before_script:
   - composer global require hirak/prestissimo
-  - composer update $PREFER_LOWEST
+  - composer update
 
 script:
   - composer validate --no-check-all --strict
