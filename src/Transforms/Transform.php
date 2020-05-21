@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Vantoozz\Strings;
+namespace Vantoozz\Strings\Transforms;
 
 use Stringable;
 
 /**
- * Class AbstractString
- * @package Vantoozz\Strings
+ * Class Transform
+ * @package Vantoozz\Strings\Transforms
  */
-abstract class AbstractString implements Stringable
+abstract class Transform implements Stringable
 {
     /**
      * @var Stringable
@@ -29,12 +29,12 @@ abstract class AbstractString implements Stringable
      */
     public function __toString(): string
     {
-        return $this->toString((string)$this->string);
+        return $this->transform((string)$this->string);
     }
 
     /**
      * @param string $string
      * @return string
      */
-    abstract protected function toString(string $string): string;
+    abstract protected function transform(string $string): string;
 }

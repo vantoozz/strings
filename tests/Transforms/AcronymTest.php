@@ -1,12 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace Vantoozz\Strings;
+namespace Vantoozz\Strings\Transforms;
 
 use PHPUnit\Framework\TestCase;
+use Vantoozz\Strings\StringObject;
 
 /**
  * Class AcronymTest
- * @package Vantoozz\Strings
+ * @package Vantoozz\Strings\Transforms
  */
 final class AcronymTest extends TestCase
 {
