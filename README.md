@@ -27,15 +27,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 var_dump((string)new Acronym(new StringObject('PHP: Hypertext Preprocessor')));
 ```
 Will output
-```
+```bash
 PHP
 ```
 
-#### Available transformations
+### Available transformations
 * Acronym
+* CaseToggled
 * SnakeCased
 
-### Testing
+## Testing
 ```bash
 ./vendor/bin/phpunit
 ```
