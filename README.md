@@ -29,9 +29,9 @@ PHP
 ```
 
 ### Available transformations
-  * Acronym
-  * CaseToggled
-  * SnakeCased
+* Acronym
+* CaseToggled
+* SnakeCased
 
 ## Testing
 ```bash
