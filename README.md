@@ -6,8 +6,6 @@ Library for strings manipulation
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/724532697bb642b293e4f8a3b462a8ee)](https://app.codacy.com/manual/vantoozz/strings?utm_source=github.com&utm_medium=referral&utm_content=vantoozz/strings&utm_campaign=Badge_Grade_Settings)
 [![Packagist](https://img.shields.io/packagist/v/vantoozz/strings.svg)](https://packagist.org/packages/vantoozz/strings)
 
-
-
 ## Setup
 Just run
 ```bash
@@ -31,9 +29,9 @@ PHP
 ```
 
 ### Available transformations
-* Acronym
-* CaseToggled
-* SnakeCased
+  * Acronym
+  * CaseToggled
+  * SnakeCased
 
 ## Testing
 ```bash
