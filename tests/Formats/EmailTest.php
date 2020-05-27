@@ -2,39 +2,19 @@
 
 namespace Vantoozz\Strings\Formats;
 
-use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\Exceptions\InvalidFormatException;
-use Vantoozz\Strings\StringObject;
-
 /**
  * Class EmailTest
  * @package Vantoozz\Strings\Formats
  */
-final class EmailTest extends TestCase
+final class EmailTest extends FormatTest
 {
 
     /**
-     * @test
-     * @dataProvider positives
-     * @param string $input
+     * @return string
      */
-    public function it_accepts_well_formatted_strings(string $input)
+    protected function className(): string
     {
-        static::assertSame($input, (string)new Email(new StringObject($input)));
-    }
-
-
-    /**
-     * @test
-     * @dataProvider negatives
-     * @param string $input
-     */
-    public function it_rejects_badly_formatted_strings(string $input)
-    {
-        $this->expectException(InvalidFormatException::class);
-        $this->expectExceptionMessage('Invalid format');
-
-        new Email(new StringObject($input));
+        return Email::class;
     }
 
     /**

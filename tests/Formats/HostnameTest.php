@@ -3,10 +3,10 @@
 namespace Vantoozz\Strings\Formats;
 
 /**
- * Class Ipv4Test
+ * Class HostnameTest
  * @package Vantoozz\Strings\Formats
  */
-final class Ipv4Test extends FormatTest
+final class HostnameTest extends FormatTest
 {
 
     /**
@@ -14,7 +14,7 @@ final class Ipv4Test extends FormatTest
      */
     protected function className(): string
     {
-        return Ipv4::class;
+        return Hostname::class;
     }
 
     /**
@@ -23,9 +23,7 @@ final class Ipv4Test extends FormatTest
     public function positives(): array
     {
         return [
-            ['127.0.0.1'],
-            ['255.255.255.255'],
-            ['0.0.0.0'],
+            ['google.com'],
         ];
     }
 
@@ -37,9 +35,7 @@ final class Ipv4Test extends FormatTest
         return [
             [''],
             ['some string'],
-            ['0:0:0:0:0:0:0:1'],
-            ['127,0,0,1'],
-            ['999.999.999.999'],
+            ['inbox@example.com'],
         ];
     }
 }

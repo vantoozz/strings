@@ -3,10 +3,10 @@
 namespace Vantoozz\Strings\Formats;
 
 /**
- * Class Ipv4Test
+ * Class Md5Test
  * @package Vantoozz\Strings\Formats
  */
-final class Ipv4Test extends FormatTest
+final class Md5Test extends FormatTest
 {
 
     /**
@@ -14,7 +14,7 @@ final class Ipv4Test extends FormatTest
      */
     protected function className(): string
     {
-        return Ipv4::class;
+        return Md5::class;
     }
 
     /**
@@ -23,9 +23,7 @@ final class Ipv4Test extends FormatTest
     public function positives(): array
     {
         return [
-            ['127.0.0.1'],
-            ['255.255.255.255'],
-            ['0.0.0.0'],
+            ['abc29b36f623ba82aaf6724fd3b16718'],
         ];
     }
 
@@ -37,9 +35,10 @@ final class Ipv4Test extends FormatTest
         return [
             [''],
             ['some string'],
-            ['0:0:0:0:0:0:0:1'],
-            ['127,0,0,1'],
-            ['999.999.999.999'],
+            ['zbc29b36f623ba82aaf6724fd3b16718'],
+            ['ABC29b36f623ba82aaf6724fd3b16718'],
+            ['abc29b36f623ba82aaf6724fd3b1671'],
+            ['abc29b36f623ba82aaf6724fd3b167181'],
         ];
     }
 }

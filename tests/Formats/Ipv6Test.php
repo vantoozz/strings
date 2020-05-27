@@ -2,39 +2,19 @@
 
 namespace Vantoozz\Strings\Formats;
 
-use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\Exceptions\InvalidFormatException;
-use Vantoozz\Strings\StringObject;
-
 /**
  * Class Ipv6Test
  * @package Vantoozz\Strings\Formats
  */
-final class Ipv6Test extends TestCase
+final class Ipv6Test extends FormatTest
 {
 
     /**
-     * @test
-     * @dataProvider positives
-     * @param string $input
+     * @return string
      */
-    public function it_accepts_well_formatted_strings(string $input)
+    protected function className(): string
     {
-        static::assertSame($input, (string)new Ipv6(new StringObject($input)));
-    }
-
-
-    /**
-     * @test
-     * @dataProvider negatives
-     * @param string $input
-     */
-    public function it_rejects_badly_formatted_strings(string $input)
-    {
-        $this->expectException(InvalidFormatException::class);
-        $this->expectExceptionMessage('Invalid format');
-
-        new Ipv6(new StringObject($input));
+        return Ipv6::class;
     }
 
     /**

@@ -3,10 +3,10 @@
 namespace Vantoozz\Strings\Formats;
 
 /**
- * Class Ipv4Test
+ * Class Sha1Test
  * @package Vantoozz\Strings\Formats
  */
-final class Ipv4Test extends FormatTest
+final class Sha1Test extends FormatTest
 {
 
     /**
@@ -14,7 +14,7 @@ final class Ipv4Test extends FormatTest
      */
     protected function className(): string
     {
-        return Ipv4::class;
+        return Sha1::class;
     }
 
     /**
@@ -23,9 +23,7 @@ final class Ipv4Test extends FormatTest
     public function positives(): array
     {
         return [
-            ['127.0.0.1'],
-            ['255.255.255.255'],
-            ['0.0.0.0'],
+            ['415ab40ae9b7cc4e66d6769cb2c08106e8293b48'],
         ];
     }
 
@@ -37,9 +35,10 @@ final class Ipv4Test extends FormatTest
         return [
             [''],
             ['some string'],
-            ['0:0:0:0:0:0:0:1'],
-            ['127,0,0,1'],
-            ['999.999.999.999'],
+            ['z15ab40ae9b7cc4e66d6769cb2c08106e8293b48'],
+            ['A15ab40ae9b7cc4e66d6769cb2c08106e8293b48'],
+            ['415ab40ae9b7cc4e66d6769cb2c08106e8293b4'],
+            ['415ab40ae9b7cc4e66d6769cb2c08106e8293b481'],
         ];
     }
 }
