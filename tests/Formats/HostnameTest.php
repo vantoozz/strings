@@ -6,7 +6,7 @@ namespace Vantoozz\Strings\Formats;
  * Class HostnameTest
  * @package Vantoozz\Strings\Formats
  */
-final class HostnameTest extends FormatTest
+final class HostnameTest extends AbstractFormatTest
 {
 
     /**
@@ -18,24 +18,25 @@ final class HostnameTest extends FormatTest
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function positives(): array
+    protected function positives(): array
     {
         return [
-            ['google.com'],
+            'google.com',
         ];
     }
 
+
+
     /**
-     * @return array
+     * @return string[]
      */
-    public function negatives(): array
-    {
+    protected function negatives(): array{
         return [
-            [''],
-            ['some string'],
-            ['inbox@example.com'],
+            '',
+            'some string',
+            'inbox@example.com'
         ];
     }
 }

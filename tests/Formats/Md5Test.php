@@ -6,7 +6,7 @@ namespace Vantoozz\Strings\Formats;
  * Class Md5Test
  * @package Vantoozz\Strings\Formats
  */
-final class Md5Test extends FormatTest
+final class Md5Test extends AbstractFormatTest
 {
 
     /**
@@ -18,27 +18,27 @@ final class Md5Test extends FormatTest
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function positives(): array
+    protected function positives(): array
     {
         return [
-            ['abc29b36f623ba82aaf6724fd3b16718'],
+            'abc29b36f623ba82aaf6724fd3b16718',
         ];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function negatives(): array
+    protected function negatives(): array
     {
         return [
-            [''],
-            ['some string'],
-            ['zbc29b36f623ba82aaf6724fd3b16718'],
-            ['ABC29b36f623ba82aaf6724fd3b16718'],
-            ['abc29b36f623ba82aaf6724fd3b1671'],
-            ['abc29b36f623ba82aaf6724fd3b167181'],
+            '',
+            'some string',
+            'zbc29b36f623ba82aaf6724fd3b16718',
+            'ABC29b36f623ba82aaf6724fd3b16718',
+            'abc29b36f623ba82aaf6724fd3b1671',
+            'abc29b36f623ba82aaf6724fd3b167181',
         ];
     }
 }

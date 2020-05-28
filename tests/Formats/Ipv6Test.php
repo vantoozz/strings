@@ -6,7 +6,7 @@ namespace Vantoozz\Strings\Formats;
  * Class Ipv6Test
  * @package Vantoozz\Strings\Formats
  */
-final class Ipv6Test extends FormatTest
+final class Ipv6Test extends AbstractFormatTest
 {
 
     /**
@@ -18,28 +18,28 @@ final class Ipv6Test extends FormatTest
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function positives(): array
+    protected function positives(): array
     {
         return [
-            ['0:0:0:0:0:0:0:1'],
-            ['2001:0db8:85a3:0000:0000:8a2e:0370:7334'],
+            '0:0:0:0:0:0:0:1',
+            '2001:0db8:85a3:0000:0000:8a2e:0370:7334',
         ];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function negatives(): array
+    protected function negatives(): array
     {
         return [
-            [''],
-            ['0.0.0.0'],
-            ['0.0.0.0'],
-            ['some string'],
-            ['127.0.0.1'],
-            ['gggg:0db8:85a3:0000:0000:8a2e:0370:7334'],
+            '',
+            'some string',
+            '0.0.0.0',
+            '0.0.0.0',
+            '127.0.0.1',
+            'gggg:0db8:85a3:0000:0000:8a2e:0370:7334',
         ];
     }
 }

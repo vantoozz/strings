@@ -6,7 +6,7 @@ namespace Vantoozz\Strings\Formats;
  * Class MacTest
  * @package Vantoozz\Strings\Formats
  */
-final class MacTest extends FormatTest
+final class MacTest extends AbstractFormatTest
 {
 
     /**
@@ -18,23 +18,23 @@ final class MacTest extends FormatTest
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function positives(): array
+    protected function positives(): array
     {
         return [
-            ['AA-BB-CC-DD-EE-FF'],
+            'AA-BB-CC-DD-EE-FF',
         ];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function negatives(): array
+    protected function negatives(): array
     {
         return [
-            [''],
-            ['some string'],
+            '',
+            'some string',
         ];
     }
 }

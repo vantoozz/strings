@@ -6,7 +6,7 @@ namespace Vantoozz\Strings\Formats;
  * Class Ipv4Test
  * @package Vantoozz\Strings\Formats
  */
-final class Ipv4Test extends FormatTest
+final class Ipv4Test extends AbstractFormatTest
 {
 
     /**
@@ -18,28 +18,28 @@ final class Ipv4Test extends FormatTest
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function positives(): array
+    protected function positives(): array
     {
         return [
-            ['127.0.0.1'],
-            ['255.255.255.255'],
-            ['0.0.0.0'],
+            '127.0.0.1',
+            '255.255.255.255',
+            '0.0.0.0',
         ];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function negatives(): array
+    protected function negatives(): array
     {
         return [
-            [''],
-            ['some string'],
-            ['0:0:0:0:0:0:0:1'],
-            ['127,0,0,1'],
-            ['999.999.999.999'],
+            '',
+            'some string',
+            '0:0:0:0:0:0:0:1',
+            '127,0,0,1',
+            '999.999.999.999',
         ];
     }
 }

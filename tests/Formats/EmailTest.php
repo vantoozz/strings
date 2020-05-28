@@ -6,7 +6,7 @@ namespace Vantoozz\Strings\Formats;
  * Class EmailTest
  * @package Vantoozz\Strings\Formats
  */
-final class EmailTest extends FormatTest
+final class EmailTest extends AbstractFormatTest
 {
 
     /**
@@ -18,28 +18,28 @@ final class EmailTest extends FormatTest
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function positives(): array
+    protected function positives(): array
     {
         return [
-            ['inbox@example.com'],
-            ['another.inbox@example.com'],
-            ['one.more+inbox@example.com'],
-            ['-@example.com'],
+            'inbox@example.com',
+            'another.inbox@example.com',
+            'one.more+inbox@example.com',
+            '-@example.com',
         ];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function negatives(): array
+    protected function negatives(): array
     {
         return [
-            [''],
-            ['some string'],
-            ['inbox@_example.com'],
-            ['inbox@-'],
+            '',
+            'some string',
+            'inbox@_example.com',
+            'inbox@-',
         ];
     }
 }

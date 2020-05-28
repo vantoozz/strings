@@ -9,15 +9,15 @@ use Vantoozz\Strings\Exceptions\InvalidFormatException;
 use Vantoozz\Strings\StringObject;
 
 /**
- * Class FormatTest
+ * Class AbstractFormatTest
  * @package Vantoozz\Strings\Formats
  */
-abstract class FormatTest extends TestCase
+abstract class AbstractFormatTest extends TestCase
 {
 
     /**
      * @test
-     * @dataProvider positives
+     * @dataProvider positiveExamples
      * @param string $input
      */
     public function it_accepts_well_formatted_strings(string $input)
@@ -29,7 +29,7 @@ abstract class FormatTest extends TestCase
 
     /**
      * @test
-     * @dataProvider negatives
+     * @dataProvider negativeExamples
      * @param string $input
      */
     public function it_rejects_badly_formatted_strings(string $input)
@@ -43,16 +43,37 @@ abstract class FormatTest extends TestCase
     /**
      * @return array
      */
-    abstract public function positives(): array;
+    public function positiveExamples(): array
+    {
+        return array_map(static function (string $example){
+            return [$example];
+        }, $this->positives());
+    }
 
     /**
      * @return array
      */
-    abstract public function negatives(): array;
+    public function negativeExamples(): array
+    {
+        return array_map(static function (string $example){
+            return [$example];
+        }, $this->negatives());
+    }
+
 
     /**
      * @return string
      */
     abstract protected function className(): string;
+
+    /**
+     * @return string[]
+     */
+    abstract protected function positives(): array;
+
+    /**
+     * @return string[]
+     */
+    abstract protected function negatives(): array;
 
 }
