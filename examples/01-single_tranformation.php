@@ -5,4 +5,4 @@ use Vantoozz\Strings\Transforms\Acronym;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-print new Acronym(new StringObject('PHP: Hypertext Preprocessor')) . PHP_EOL;
+echo new Acronym(new StringObject('PHP: Hypertext Preprocessor')) . PHP_EOL;
