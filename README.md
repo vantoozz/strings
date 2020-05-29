@@ -21,7 +21,7 @@ use Vantoozz\Strings\Transforms\Acronym;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-var_dump((string)new Acronym(new StringObject('PHP: Hypertext Preprocessor')));
+print new Acronym(new StringObject('PHP: Hypertext Preprocessor')) . PHP_EOL;
 ```
 Will output
 ```bash
