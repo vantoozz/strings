@@ -14,19 +14,21 @@ final class CaseToggled extends Transform
      */
     protected function transform(string $string): string
     {
-        $caseToggled = [];
+        $transformed = '';
+
         $characters = preg_split('/(?<!^)(?!$)/u', $string);
         foreach ($characters as $character) {
-            $caseToggled[] = $this->toggleCase($character);
+            $transformed .= $this->toggleCase($character);
         }
-        return implode('', $caseToggled);
+
+        return $transformed;
     }
 
     /**
      * @param string $character
      * @return string
      */
-    private function toggleCase(string $character):string
+    private function toggleCase(string $character): string
     {
         $lowercased = mb_strtolower($character, 'UTF-8');
         if ($lowercased !== $character) {

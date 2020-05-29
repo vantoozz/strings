@@ -14,13 +14,13 @@ final class Acronym extends Transform
      */
     protected function transform(string $string): string
     {
-        $words = preg_split('/[\s,_-]+/', $string);
+        $transformed = '';
 
-        $result = '';
+        $words = preg_split('/[\s,_-]+/', $string);
         foreach ($words as $word) {
-            $result .= $word[0] ?? '';
+            $transformed .= $word[0] ?? '';
         }
 
-        return $result;
+        return $transformed;
     }
 }

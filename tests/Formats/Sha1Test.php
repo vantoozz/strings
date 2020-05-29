@@ -12,7 +12,7 @@ final class Sha1Test extends AbstractFormatTest
     /**
      * @return string
      */
-    protected function className(): string
+    protected function formatClassName(): string
     {
         return Sha1::class;
     }

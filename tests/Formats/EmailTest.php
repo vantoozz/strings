@@ -12,7 +12,7 @@ final class EmailTest extends AbstractFormatTest
     /**
      * @return string
      */
-    protected function className(): string
+    protected function formatClassName(): string
     {
         return Email::class;
     }

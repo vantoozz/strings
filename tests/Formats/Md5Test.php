@@ -12,7 +12,7 @@ final class Md5Test extends AbstractFormatTest
     /**
      * @return string
      */
-    protected function className(): string
+    protected function formatClassName(): string
     {
         return Md5::class;
     }

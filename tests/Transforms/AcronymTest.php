@@ -1,37 +1,34 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Vantoozz\Strings\Transforms;
-
-use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\StringObject;
 
 /**
  * Class AcronymTest
  * @package Vantoozz\Strings\Transforms
  */
-final class AcronymTest extends TestCase
+final class AcronymTest extends AbstractTransformTest
 {
+
     /**
-     * @test
-     * @dataProvider examplesProvider
-     * @param string $input
-     * @param string $output
+     * @return string
      */
-    public function it_works(string $input, string $output)
+    protected function transformClassName(): string
     {
-        $this->assertEquals($output, (string)new Acronym(new StringObject($input)));
+        return Acronym::class;
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function examplesProvider(): array
+    protected function examples(): array
     {
         return [
-            ['hello', 'h'],
-            ['   ', ''],
-            ['PHP: Hypertext Preprocessor', 'PHP'],
-            ['PHP: hypertext preprocessor', 'Php'],
+            "\n" => '',
+            '' => '',
+            '   ' => '',
+            'hello' => 'h',
+            'PHP: Hypertext Preprocessor' => 'PHP',
+            'PHP: hypertext preprocessor' => 'Php',
         ];
     }
 }

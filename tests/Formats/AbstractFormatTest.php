@@ -22,8 +22,8 @@ abstract class AbstractFormatTest extends TestCase
      */
     public function it_accepts_well_formatted_strings(string $input)
     {
-        $className = $this->className();
-        static::assertSame($input, (string)new $className(new StringObject($input)));
+        $formatClassName = $this->formatClassName();
+        static::assertSame($input, (string)new $formatClassName(new StringObject($input)));
     }
 
 
@@ -36,8 +36,9 @@ abstract class AbstractFormatTest extends TestCase
     {
         $this->expectException(InvalidFormatException::class);
         $this->expectExceptionMessage('Invalid format');
-        $className = $this->className();
-        new $className(new StringObject($input));
+
+        $formatClassName = $this->formatClassName();
+        new $formatClassName(new StringObject($input));
     }
 
     /**
@@ -45,7 +46,7 @@ abstract class AbstractFormatTest extends TestCase
      */
     public function positiveExamples(): array
     {
-        return array_map(static function (string $example){
+        return array_map(static function (string $example) {
             return [$example];
         }, $this->positives());
     }
@@ -55,7 +56,7 @@ abstract class AbstractFormatTest extends TestCase
      */
     public function negativeExamples(): array
     {
-        return array_map(static function (string $example){
+        return array_map(static function (string $example) {
             return [$example];
         }, $this->negatives());
     }
@@ -64,7 +65,7 @@ abstract class AbstractFormatTest extends TestCase
     /**
      * @return string
      */
-    abstract protected function className(): string;
+    abstract protected function formatClassName(): string;
 
     /**
      * @return string[]

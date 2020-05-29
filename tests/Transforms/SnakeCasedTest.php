@@ -1,38 +1,40 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Vantoozz\Strings\Transforms;
 
 use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\StringObject;
 
 /**
  * Class SnakeCasedTest
  * @package Vantoozz\Strings\Transforms
  */
-final class SnakeCasedTest extends TestCase
+final class SnakeCasedTest extends AbstractTransformTest
 {
     /**
-     * @test
-     * @dataProvider examplesProvider
-     * @param string $input
-     * @param string $output
+     * @return string
      */
-    public function it_works(string $input, string $output)
+    protected function transformClassName(): string
     {
-        $this->assertEquals($output, (string)new SnakeCased(new StringObject($input)));
+        return SnakeCased::class;
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function examplesProvider(): array
+    protected function examples(): array
     {
         return [
-            ['PHP', 'P_H_P'],
-            ['hypertext preprocessor', 'hypertext_preprocessor'],
-            ['Hypertext preprocessor', 'Hypertext_preprocessor'],
-            ['Hypertext Preprocessor', 'Hypertext_Preprocessor'],
-            ['HypertextPreprocessor', 'Hypertext_Preprocessor'],
+            "\n" => "\n",
+            '' => '',
+            '   ' => '_',
+            '_' => '_',
+            '__' => '_',
+            'PHP' => 'P_H_P',
+            '_%%'=>'_%%',
+            'hypertext preprocessor' => 'hypertext_preprocessor',
+            'Hypertext preprocessor' => 'Hypertext_preprocessor',
+            'Hypertext Preprocessor' => 'Hypertext_Preprocessor',
+            'HypertextPreprocessor' => 'Hypertext_Preprocessor',
         ];
     }
 }

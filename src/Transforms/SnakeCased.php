@@ -14,10 +14,10 @@ final class SnakeCased extends Transform
      */
     protected function transform(string $string): string
     {
-        $string = preg_replace('/(?<!^)[A-Z]/', '_$0', $string);
-        $string = str_replace(' ', '_', $string);
-        $string = preg_replace('/_+/', '_', $string);
+        $transformed = preg_replace('/(?<!^)[A-Z]/', '_$0', $string);
+        $transformed = str_replace(' ', '_', $transformed);
+        $transformed = preg_replace('/_+/', '_', $transformed);
 
-        return $string;
+        return $transformed;
     }
 }

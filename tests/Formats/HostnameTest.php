@@ -12,7 +12,7 @@ final class HostnameTest extends AbstractFormatTest
     /**
      * @return string
      */
-    protected function className(): string
+    protected function formatClassName(): string
     {
         return Hostname::class;
     }
@@ -28,15 +28,15 @@ final class HostnameTest extends AbstractFormatTest
     }
 
 
-
     /**
      * @return string[]
      */
-    protected function negatives(): array{
+    protected function negatives(): array
+    {
         return [
             '',
             'some string',
-            'inbox@example.com'
+            'inbox@example.com',
         ];
     }
 }

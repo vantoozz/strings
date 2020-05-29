@@ -12,7 +12,7 @@ final class Sha256Test extends AbstractFormatTest
     /**
      * @return string
      */
-    protected function className(): string
+    protected function formatClassName(): string
     {
         return Sha256::class;
     }

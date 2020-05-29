@@ -12,7 +12,7 @@ final class Ipv4Test extends AbstractFormatTest
     /**
      * @return string
      */
-    protected function className(): string
+    protected function formatClassName(): string
     {
         return Ipv4::class;
     }

@@ -1,41 +1,36 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Vantoozz\Strings\Transforms;
-
-use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\StringObject;
 
 /**
  * Class CaseToggledTest
  * @package Vantoozz\Strings\Transforms
  */
-final class CaseToggledTest extends TestCase
+final class CaseToggledTest extends AbstractTransformTest
 {
     /**
-     * @test
-     * @dataProvider examplesProvider
-     * @param string $input
-     * @param string $output
+     * @return string
      */
-    public function it_works(string $input, string $output)
+    protected function transformClassName(): string
     {
-        $this->assertEquals($output, (string)new CaseToggled(new StringObject($input)));
+        return CaseToggled::class;
     }
 
     /**
-     * @return array
+     * @return string[]
      */
-    public function examplesProvider(): array
+    protected function examples(): array
     {
         return [
-            ['hello', 'HELLO'],
-            ['', ''],
-            ['   ', '   '],
-            ['PHP: Hypertext Preprocessor', 'php: hYPERTEXT pREPROCESSOR'],
-            ['Český', 'čESKÝ'],
-            ['Русский', 'рУССКИЙ'],
-            ['中文', '中文'],
-            ['+-aaa==zzz$%', '+-AAA==ZZZ$%'],
+            "\n" => "\n",
+            '' => '',
+            '   ' => '   ',
+            'hello' => 'HELLO',
+            'PHP: Hypertext Preprocessor' => 'php: hYPERTEXT pREPROCESSOR',
+            'Český' => 'čESKÝ',
+            'Русский' => 'рУССКИЙ',
+            '中文' => '中文',
+            '+-aaa==zzz$%' => '+-AAA==ZZZ$%',
         ];
     }
 }
