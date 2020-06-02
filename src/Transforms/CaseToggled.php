@@ -16,24 +16,24 @@ final class CaseToggled extends Transform
     {
         $transformed = '';
 
-        $characters = preg_split('/(?<!^)(?!$)/u', $string);
-        foreach ($characters as $character) {
-            $transformed .= $this->toggleCase($character);
+        $chars = preg_split('/(?<!^)(?!$)/u', $string);
+        foreach ($chars as $char) {
+            $transformed .= $this->toggleCase($char);
         }
 
         return $transformed;
     }
 
     /**
-     * @param string $character
+     * @param string $char
      * @return string
      */
-    private function toggleCase(string $character): string
+    private function toggleCase(string $char): string
     {
-        $lowercased = mb_strtolower($character, 'UTF-8');
-        if ($lowercased !== $character) {
+        $lowercased = mb_strtolower($char, 'UTF-8');
+        if ($lowercased !== $char) {
             return $lowercased;
         }
-        return mb_strtoupper($character, 'UTF-8');
+        return mb_strtoupper($char, 'UTF-8');
     }
 }
