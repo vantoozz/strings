@@ -1,39 +1,33 @@
 <?php declare(strict_types=1);
 
-namespace Vantoozz\Strings;
 
-use PHPUnit\Framework\TestCase;
+namespace Vantoozz\Strings\Joins;
+
 
 /**
  * Class EndingWithTest
- * @package Vantoozz\Strings
+ * @package Vantoozz\Strings\Joins
  */
-final class EndingWithTest extends TestCase
+final class EndingWithTest extends AbstractJoinTest
 {
     /**
-     * @test
-     * @dataProvider examplesProvider
-     * @param string $string
-     * @param string $ending
-     * @param string $output
+     * @return string
      */
-    public function it_works(string $string, string $ending, string $output)
+    protected function joinClassName(): string
     {
-        $this->assertEquals(
-            $output,
-            (string)new EndingWith(new StringObject($string), new StringObject($ending))
-        );
+        return EndingWith::class;
     }
 
     /**
-     * @return array
+     * @return string[][]
      */
-    public function examplesProvider(): array
+    protected function examples(): array
     {
         return [
             ['', '', ''],
             ["\n", "\n", "\n"],
             ['', "\n", "\n"],
+            ["\n", '', "\n"],
             ['ab', 'cd', 'abcd'],
             ['abc', 'cd', 'abcd'],
             ['abcd', 'cdef', 'abcdef'],

@@ -30,7 +30,7 @@ abstract class AbstractTransformTest extends TestCase
     {
         $examples = $this->examples();
 
-        return array_map(static function ($input, $output) {
+        return array_map(static function (string $input, string $output) {
             return [$input, $output];
         }, array_keys($examples), $examples);
     }

@@ -1,14 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Vantoozz\Strings;
+
+namespace Vantoozz\Strings\Joins;
 
 use Stringable;
 
 /**
- * Class Joined
- * @package Vantoozz\Strings
+ * Class Join
+ * @package Vantoozz\Strings\Joins
  */
-final class Joined implements Stringable
+abstract class Join implements Stringable
 {
     /**
      * @var Stringable
@@ -31,11 +32,19 @@ final class Joined implements Stringable
         $this->two = $two;
     }
 
+
     /**
      * @return string
      */
     public function __toString(): string
     {
-        return $this->one . $this->two;
+        return $this->join((string)$this->one, (string)$this->two);
     }
+
+    /**
+     * @param string $one
+     * @param string $two
+     * @return string
+     */
+    abstract protected function join(string $one, string $two): string;
 }
