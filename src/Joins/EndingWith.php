@@ -16,6 +16,17 @@ final class EndingWith extends Join
      */
     protected function join(string $one, string $two): string
     {
-        return mb_substr($one, 0, strcspn($one, $two)) . $two;
+        $chars = preg_split('/(?<!^)(?!$)/u', $one);
+
+        $length = count($chars);
+        while (0 < $length) {
+            if (strncmp($two, implode('', $chars), $length) === 0) {
+                return $one . mb_substr($two, $length);
+            }
+            array_shift($chars);
+            $length--;
+        }
+
+        return $one . $two;
     }
 }

@@ -27,6 +27,7 @@ final class StartingWithTest extends AbstractJoinTest
             ['', '', ''],
             ["\n", "\n", "\n"],
             ['', "\n", "\n"],
+            ['abc', 'cda', 'cdabc'],
             ['ab', 'cd', 'cdab'],
             ['ab', 'xa', 'xab'],
             ['ab', 'xyzab', 'xyzab'],
@@ -35,6 +36,8 @@ final class StartingWithTest extends AbstractJoinTest
             ['xabcde', 'x', 'xabcde'],
             ['xabcde', '', 'xabcde'],
             ['', 'xabcde', 'xabcde'],
+            ['/some/path/', '/', '/some/path/'],
+            ['some/path/', '/', '/some/path/'],
         ];
     }
 }

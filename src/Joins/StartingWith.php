@@ -3,19 +3,40 @@
 
 namespace Vantoozz\Strings\Joins;
 
+use Stringable;
+
 /**
  * Class StartingWith
  * @package Vantoozz\Strings\Joins
  */
-final class StartingWith extends Join
+final class StartingWith implements Stringable
 {
     /**
-     * @param string $one
-     * @param string $two
+     * @var Stringable
+     */
+    private $one;
+
+    /**
+     * @var Stringable
+     */
+    private $two;
+
+    /**
+     * StartingWith constructor.
+     * @param Stringable $one
+     * @param Stringable $two
+     */
+    public function __construct(Stringable $one, Stringable $two)
+    {
+        $this->one = $one;
+        $this->two = $two;
+    }
+
+    /**
      * @return string
      */
-    protected function join(string $one, string $two): string
+    public function __toString(): string
     {
-        return mb_substr($two, 0, strcspn($two, $one)) . $one;
+        return (string)new EndingWith($this->two, $this->one);
     }
 }

@@ -28,6 +28,8 @@ final class EndingWithTest extends AbstractJoinTest
             ["\n", "\n", "\n"],
             ['', "\n", "\n"],
             ["\n", '', "\n"],
+            ['abcdedef', 'dedefghi', 'abcdedefghi'],
+            ['abc', 'cda', 'abcda'],
             ['ab', 'cd', 'abcd'],
             ['abc', 'cd', 'abcd'],
             ['abcd', 'cdef', 'abcdef'],
@@ -40,6 +42,8 @@ final class EndingWithTest extends AbstractJoinTest
             ['abcd', 'dz', 'abcdz'],
             ['abcd', '', 'abcd'],
             ['', 'abcd', 'abcd'],
+            ['/some/path/', '/', '/some/path/'],
+            ['/some/path', '/', '/some/path/'],
         ];
     }
 }
