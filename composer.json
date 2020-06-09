@@ -30,7 +30,8 @@
       ]
     },
     "files": [
-      "support/Stringable.php"
+      "support/Stringable.php",
+      "support/str.php"
     ]
   },
   "config": {

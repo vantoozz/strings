@@ -3,12 +3,13 @@
 use Vantoozz\Strings\Joins\EndingWith;
 use Vantoozz\Strings\Joins\Joined;
 use Vantoozz\Strings\Joins\StartingWith;
-use Vantoozz\Strings\StringObject;
+
+use function Vantoozz\Strings\string;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$one = new StringObject('aabbc');
-$two = new StringObject('ccddaa');
+$one = string('aabbc');
+$two = string('ccddaa');
 
 echo new Joined($one, $two) . PHP_EOL;
 echo new EndingWith($one, $two) . PHP_EOL;
