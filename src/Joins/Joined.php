@@ -9,12 +9,12 @@ namespace Vantoozz\Strings\Joins;
 final class Joined extends Join
 {
     /**
-     * @param string $one
-     * @param string $two
+     * @param string $left
+     * @param string $right
      * @return string
      */
-    protected function join(string $one, string $two): string
+    protected function join(string $left, string $right): string
     {
-        return $one . $two;
+        return $left . $right;
     }
 }

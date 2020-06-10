@@ -3,6 +3,7 @@
 namespace Vantoozz\Strings\Transforms;
 
 use Stringable;
+use Vantoozz\Strings\Joins\StartingWith;
 
 /**
  * Class Transform
@@ -13,15 +14,15 @@ abstract class Transform implements Stringable
     /**
      * @var Stringable
      */
-    private $string;
+    private $stringable;
 
     /**
      * Acronym constructor.
-     * @param Stringable $string
+     * @param Stringable $stringable
      */
-    public function __construct(Stringable $string)
+    public function __construct(Stringable $stringable)
     {
-        $this->string = $string;
+        $this->stringable = $stringable;
     }
 
     /**
@@ -29,7 +30,7 @@ abstract class Transform implements Stringable
      */
     public function __toString(): string
     {
-        return $this->transform((string)$this->string);
+        return $this->transform((string)$this->stringable);
     }
 
     /**

@@ -4,12 +4,12 @@ use Vantoozz\Strings\Formats\Email;
 use Vantoozz\Strings\Joins\EndingWith;
 use Vantoozz\Strings\Transforms\CaseToggled;
 
-use function Vantoozz\Strings\string;
+use function Vantoozz\Strings\str;
 
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$username = string('User@');
-$domain = string('@Example.Com');
+$username = str('User@');
+$domain = str('@Example.Com');
 
 echo new CaseToggled(new Email(new EndingWith($username, $domain))) . PHP_EOL;

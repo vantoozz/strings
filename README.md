@@ -23,16 +23,18 @@ composer require vantoozz/strings
 
 use Vantoozz\Strings\Transforms\Acronym;
 use Vantoozz\Strings\Transforms\CaseToggled;
+use Vantoozz\Strings\Transforms\Reversed;
 use Vantoozz\Strings\Transforms\SnakeCased;
 
-use function Vantoozz\Strings\string;
+use function Vantoozz\Strings\str;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$string = string('PHP: Hypertext Preprocessor');
+$string = str('PHP: Hypertext Preprocessor');
 
 echo new Acronym($string) . PHP_EOL;
 echo new CaseToggled($string) . PHP_EOL;
+echo new Reversed($string) . PHP_EOL;
 echo new SnakeCased($string) . PHP_EOL;
 
 ```
@@ -40,11 +42,13 @@ Will output
 ```bash
 PHP
 php: hYPERTEXT pREPROCESSOR
+rossecorperP txetrepyH :PHP
 P_H_P:_Hypertext_Preprocessor
 ```
 ### Available transformations
 * Acronym
 * CaseToggled
+* Reversed
 * SnakeCased
 
 ## Joins
@@ -55,12 +59,12 @@ use Vantoozz\Strings\Joins\EndingWith;
 use Vantoozz\Strings\Joins\Joined;
 use Vantoozz\Strings\Joins\StartingWith;
 
-use function Vantoozz\Strings\string;
+use function Vantoozz\Strings\str;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$one = string('aabbc');
-$two = string('ccddaa');
+$one = str('aabbc');
+$two = str('ccddaa');
 
 echo new Joined($one, $two) . PHP_EOL;
 echo new EndingWith($one, $two) . PHP_EOL;
@@ -85,19 +89,19 @@ ccddaabbc
 use Vantoozz\Strings\Exceptions\InvalidFormatException;
 use Vantoozz\Strings\Formats\Email;
 
-use function Vantoozz\Strings\string;
+use function Vantoozz\Strings\str;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 
 try {
-    echo new Email(string('user@example.com')) . PHP_EOL;
+    echo new Email(str('user@example.com')) . PHP_EOL;
 } catch (InvalidFormatException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    echo new Email(string('user%example.com')) . PHP_EOL;
+    echo new Email(str('user%example.com')) . PHP_EOL;
 } catch (InvalidFormatException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
@@ -125,13 +129,13 @@ use Vantoozz\Strings\Formats\Email;
 use Vantoozz\Strings\Joins\EndingWith;
 use Vantoozz\Strings\Transforms\CaseToggled;
 
-use function Vantoozz\Strings\string;
+use function Vantoozz\Strings\str;
 
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$username = string('User@');
-$domain = string('@Example.Com');
+$username = str('User@');
+$domain = str('@Example.Com');
 
 echo new CaseToggled(new Email(new EndingWith($username, $domain))) . PHP_EOL;
 

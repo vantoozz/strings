@@ -6,7 +6,8 @@ namespace Vantoozz\Strings\Formats;
 
 use PHPUnit\Framework\TestCase;
 use Vantoozz\Strings\Exceptions\InvalidFormatException;
-use Vantoozz\Strings\StringObject;
+
+use function Vantoozz\Strings\str;
 
 /**
  * Class AbstractFormatTest
@@ -23,9 +24,13 @@ abstract class AbstractFormatTest extends TestCase
     public function it_accepts_well_formatted_strings(string $input)
     {
         $formatClassName = $this->formatClassName();
-        static::assertSame($input, (string)new $formatClassName(new StringObject($input)));
+        static::assertSame($input, (string)new $formatClassName(str($input)));
     }
 
+    /**
+     * @return string
+     */
+    abstract protected function formatClassName(): string;
 
     /**
      * @test
@@ -38,7 +43,7 @@ abstract class AbstractFormatTest extends TestCase
         $this->expectExceptionMessage('Invalid format');
 
         $formatClassName = $this->formatClassName();
-        new $formatClassName(new StringObject($input));
+        new $formatClassName(str($input));
     }
 
     /**
@@ -52,6 +57,11 @@ abstract class AbstractFormatTest extends TestCase
     }
 
     /**
+     * @return string[]
+     */
+    abstract protected function positives(): array;
+
+    /**
      * @return array
      */
     public function negativeExamples(): array
@@ -60,17 +70,6 @@ abstract class AbstractFormatTest extends TestCase
             return [$example];
         }, $this->negatives());
     }
-
-
-    /**
-     * @return string
-     */
-    abstract protected function formatClassName(): string;
-
-    /**
-     * @return string[]
-     */
-    abstract protected function positives(): array;
 
     /**
      * @return string[]

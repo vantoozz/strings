@@ -3,7 +3,8 @@
 namespace Vantoozz\Strings\Joins;
 
 use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\StringObject;
+
+use function Vantoozz\Strings\str;
 
 /**
  * Class AbstractJoinTest
@@ -23,10 +24,7 @@ abstract class AbstractJoinTest extends TestCase
         $joinClassName = $this->joinClassName();
         $this->assertEquals(
             $output,
-            (string)new $joinClassName(
-                new StringObject($one),
-                new StringObject($two)
-            )
+            (string)new $joinClassName(str($one), str($two))
         );
     }
 

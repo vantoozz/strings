@@ -3,7 +3,8 @@
 namespace Vantoozz\Strings\Transforms;
 
 use PHPUnit\Framework\TestCase;
-use Vantoozz\Strings\StringObject;
+
+use function Vantoozz\Strings\str;
 
 /**
  * Class AbstractTransformTest
@@ -20,8 +21,13 @@ abstract class AbstractTransformTest extends TestCase
     public function it_works(string $input, string $output)
     {
         $transformClassName = $this->transformClassName();
-        $this->assertEquals($output, (string)new $transformClassName(new StringObject($input)));
+        $this->assertEquals($output, (string)new $transformClassName(str($input)));
     }
+
+    /**
+     * @return string
+     */
+    abstract protected function transformClassName(): string;
 
     /**
      * @return array
@@ -34,11 +40,6 @@ abstract class AbstractTransformTest extends TestCase
             return [$input, $output];
         }, array_keys($examples), $examples);
     }
-
-    /**
-     * @return string
-     */
-    abstract protected function transformClassName(): string;
 
     /**
      * @return string[]

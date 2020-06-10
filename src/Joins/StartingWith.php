@@ -14,22 +14,22 @@ final class StartingWith implements Stringable
     /**
      * @var Stringable
      */
-    private $one;
+    private $right;
 
     /**
      * @var Stringable
      */
-    private $two;
+    private $left;
 
     /**
      * StartingWith constructor.
-     * @param Stringable $one
-     * @param Stringable $two
+     * @param Stringable $right
+     * @param Stringable $left
      */
-    public function __construct(Stringable $one, Stringable $two)
+    public function __construct(Stringable $right, Stringable $left)
     {
-        $this->one = $one;
-        $this->two = $two;
+        $this->right = $right;
+        $this->left = $left;
     }
 
     /**
@@ -37,6 +37,6 @@ final class StartingWith implements Stringable
      */
     public function __toString(): string
     {
-        return (string)new EndingWith($this->two, $this->one);
+        return (string)new EndingWith($this->left, $this->right);
     }
 }

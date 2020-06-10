@@ -10,23 +10,23 @@ namespace Vantoozz\Strings\Joins;
 final class EndingWith extends Join
 {
     /**
-     * @param string $one
-     * @param string $two
+     * @param string $left
+     * @param string $right
      * @return string
      */
-    protected function join(string $one, string $two): string
+    protected function join(string $left, string $right): string
     {
-        $chars = preg_split('/(?<!^)(?!$)/u', $one);
+        $chars = preg_split('/(?<!^)(?!$)/u', $left);
 
         $length = count($chars);
         while (0 < $length) {
-            if (strncmp($two, implode('', $chars), $length) === 0) {
-                return $one . mb_substr($two, $length);
+            if (strncmp($right, implode('', $chars), $length) === 0) {
+                return $left . mb_substr($right, $length);
             }
             array_shift($chars);
             $length--;
         }
 
-        return $one . $two;
+        return $left . $right;
     }
 }

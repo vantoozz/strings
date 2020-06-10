@@ -14,19 +14,19 @@ abstract class Format implements Stringable
     /**
      * @var Stringable
      */
-    private $string;
+    private $stringable;
 
     /**
      * ValueObject constructor.
-     * @param Stringable $string
+     * @param Stringable $stringable
      * @throws InvalidFormatException
      */
-    public function __construct(Stringable $string)
+    public function __construct(Stringable $stringable)
     {
-        if (!$this->valid((string)$string)) {
+        if (!$this->valid((string)$stringable)) {
             throw new InvalidFormatException('Invalid format');
         }
-        $this->string = $string;
+        $this->stringable = $stringable;
     }
 
     /**
@@ -40,6 +40,6 @@ abstract class Format implements Stringable
      */
     public function __toString(): string
     {
-        return (string)$this->string;
+        return (string)$this->stringable;
     }
 }

@@ -1,20 +1,22 @@
 <?php declare(strict_types=1);
 
+
 namespace Vantoozz\Strings;
+
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class StringObjectTest
+ * Class StrTest
  * @package Vantoozz\Strings
  */
-final class StringObjectTest extends TestCase
+final class StrTest extends TestCase
 {
     /**
      * @test
      */
     public function it_stores_a_string()
     {
-        $this->assertEquals('some string', (string)new StringObject('some string'));
+        $this->assertSame('some string', (string)str('some string'));
     }
 }

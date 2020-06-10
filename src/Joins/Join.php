@@ -14,22 +14,22 @@ abstract class Join implements Stringable
     /**
      * @var Stringable
      */
-    private $one;
+    private $left;
 
     /**
      * @var Stringable
      */
-    private $two;
+    private $right;
 
     /**
      * Joined constructor.
-     * @param Stringable $one
-     * @param Stringable $two
+     * @param Stringable $left
+     * @param Stringable $right
      */
-    public function __construct(Stringable $one, Stringable $two)
+    public function __construct(Stringable $left, Stringable $right)
     {
-        $this->one = $one;
-        $this->two = $two;
+        $this->left = $left;
+        $this->right = $right;
     }
 
 
@@ -38,13 +38,13 @@ abstract class Join implements Stringable
      */
     public function __toString(): string
     {
-        return $this->join((string)$this->one, (string)$this->two);
+        return $this->join((string)$this->left, (string)$this->right);
     }
 
     /**
-     * @param string $one
-     * @param string $two
+     * @param string $left
+     * @param string $right
      * @return string
      */
-    abstract protected function join(string $one, string $two): string;
+    abstract protected function join(string $left, string $right): string;
 }
