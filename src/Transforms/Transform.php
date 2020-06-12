@@ -3,7 +3,6 @@
 namespace Vantoozz\Strings\Transforms;
 
 use Stringable;
-use Vantoozz\Strings\Joins\StartingWith;
 
 /**
  * Class Transform
