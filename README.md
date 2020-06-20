@@ -48,8 +48,10 @@ P_H_P:_Hypertext_Preprocessor
 ### Available transformations
 * Acronym
 * CaseToggled
+* LowerCased
 * Reversed
 * SnakeCased
+* UpperCased
 
 ## Joins
 ```php
