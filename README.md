@@ -53,7 +53,9 @@ p_h_p:_hypertext_preprocessor
 * LowerCased
 * PascalCased
 * Reversed
+* SentenceCased
 * SnakeCased
+* TitleCased
 * UpperCased
 
 ## Joins
