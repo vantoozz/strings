@@ -2,8 +2,6 @@
 
 namespace Vantoozz\Strings\Transforms;
 
-use PHPUnit\Framework\TestCase;
-
 /**
  * Class SnakeCasedTest
  * @package Vantoozz\Strings\Transforms
@@ -29,12 +27,14 @@ final class SnakeCasedTest extends AbstractTransformTest
             '   ' => '_',
             '_' => '_',
             '__' => '_',
-            'PHP' => 'P_H_P',
-            '_%%'=>'_%%',
+            'PHP' => 'p_h_p',
+            '_%%' => '_%%',
             'hypertext preprocessor' => 'hypertext_preprocessor',
-            'Hypertext preprocessor' => 'Hypertext_preprocessor',
-            'Hypertext Preprocessor' => 'Hypertext_Preprocessor',
-            'HypertextPreprocessor' => 'Hypertext_Preprocessor',
+            'Hypertext preprocessor' => 'hypertext_preprocessor',
+            'Hypertext Preprocessor' => 'hypertext_preprocessor',
+            'HypertextPreprocessor' => 'hypertext_preprocessor',
+            '123PHP' => '123_p_h_p',
+            '123_P HP' => '123_p_h_p',
         ];
     }
 }

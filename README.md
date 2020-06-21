@@ -9,7 +9,7 @@ True OOP library for strings manipulation
 
 
 The goal of the library is providing an OOP way for strings manipulations. 
-It may work  with any object implementing `Stringable` interface. https://wiki.php.net/rfc/stringable.
+It works  with any object implementing `Stringable` interface. https://wiki.php.net/rfc/stringable.
 
 ## Setup
 Just run
@@ -43,12 +43,14 @@ Will output
 PHP
 php: hYPERTEXT pREPROCESSOR
 rossecorperP txetrepyH :PHP
-P_H_P:_Hypertext_Preprocessor
+p_h_p:_hypertext_preprocessor
 ```
 ### Available transformations
 * Acronym
+* CamelCased
 * CaseToggled
 * LowerCased
+* PascalCased
 * Reversed
 * SnakeCased
 * UpperCased
