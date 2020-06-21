@@ -49,6 +49,7 @@ p_h_p:_hypertext_preprocessor
 * Acronym
 * CamelCased
 * CaseToggled
+* KebabCased
 * LowerCased
 * PascalCased
 * Reversed

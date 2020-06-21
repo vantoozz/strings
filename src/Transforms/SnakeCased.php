@@ -15,7 +15,7 @@ final class SnakeCased extends Transform
     protected function transform(string $string): string
     {
         $transformed = preg_replace('/(?<!^)[A-Z]/', '_$0', $string);
-        $transformed = str_replace(' ', '_', $transformed);
+        $transformed = str_replace(['-', ' '], '_', $transformed);
         $transformed = preg_replace('/_+/', '_', $transformed);
         $transformed = mb_strtolower($transformed);
 
