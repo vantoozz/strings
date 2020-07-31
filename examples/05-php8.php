@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 
+use Vantoozz\Strings\Joins\EndingWith;
 use Vantoozz\Strings\Transforms\Reversed;
 use Vantoozz\Strings\Transforms\UpperCased;
 
@@ -25,3 +26,11 @@ echo new UpperCased(new class {
         return "two";
     }
 });
+echo PHP_EOL;
+
+echo new EndingWith(new One(), new Reversed(new class {
+    public function __toString(): string
+    {
+        return "three";
+    }
+}));
