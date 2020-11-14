@@ -2,7 +2,7 @@
   "name": "vantoozz/strings",
   "license": "MIT",
   "type": "library",
-  "description": "Strings OOP Library",
+  "description": "OOP Strings Library",
   "authors": [
     {
       "name": "Ivan Nikitin",
@@ -30,8 +30,8 @@
       ]
     },
     "files": [
-      "support/str.php",
-      "support/Stringable.php"
+      "support/Stringable.php",
+      "support/str.php"
     ]
   },
   "config": {
