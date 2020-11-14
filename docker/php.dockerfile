@@ -1,4 +1,4 @@
-FROM php:7.4.7-cli
+FROM php:7.4.12-cli
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -8,7 +8,7 @@ RUN apt-get update \
         git=1:2.20.1-2+deb10u3 \
         iproute2=4.20.0-2 \
         libssl-dev=1.1.1d-0+deb10u3 \
-    && pecl install xdebug-2.9.6 \
+    && pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug \
     && rm -rf /var/lib/apt/lists/*
 
@@ -16,8 +16,7 @@ COPY docker/php.ini /usr/local/etc/php/
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/ \
-    && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer \
-    && composer global require hirak/prestissimo
+    && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
 RUN  composer global require -v \
         squizlabs/php_codesniffer:~3 \
