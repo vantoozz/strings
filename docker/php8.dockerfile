@@ -30,6 +30,15 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/ \
     && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
+RUN  composer global require -v --ignore-platform-req=php \
+        squizlabs/php_codesniffer:~3 \
+        sebastian/phpcpd:~5 \
+        dancryer/php-docblock-checker:~1 \
+        phpstan/phpstan:~0 \
+        phpmd/phpmd:~2 \
+        povils/phpmnd:~2 \
+        vantoozz/phpcdm:~1
+
 WORKDIR /opt/project
 
 CMD ["php"]
