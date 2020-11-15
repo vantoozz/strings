@@ -118,7 +118,7 @@ Will output
 user@example.com
 Invalid format
 ```
-### Available joins
+### Available formats
 * Email
 * Hostname
 * Ipv4
